@@ -1,0 +1,12 @@
+auto-save-list/
+backups/
+elpa/
+transient/
+places
+savehist
+.recentf
+.smex-items
+.DS_Store
+ido.last
+projectile-bookmarks.eld
+cider-history
