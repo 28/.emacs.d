@@ -6,6 +6,7 @@
 ;; keep installed packages in .emacs.d
 (setq package-user-dir (concat user-emacs-directory "elpa"))
 (package-initialize)
+(setq package-enable-at-startup nil)
 ;; update the package metadata if the local cache is missing
 (unless package-archive-contents
   (package-refresh-contents))
@@ -118,6 +119,7 @@
 
 ;; convert tabs to 2 spaces
 (defun die-tabs ()
+  "Convert all tabs in buffer to 2 spaces."
   (interactive)
   (set-variable 'tab-width 2)
   (mark-whole-buffer)
@@ -129,7 +131,7 @@
 (setq-default sh-basic-offset 2)
 (setq-default sh-indentation 2)
 
-;; don't create ~ files
+;; don't create ~ file
 (setq create-lockfiles nil)
 
 ;; unlimited undo
@@ -143,10 +145,10 @@
 
 ;; set how emacs yank interacts with operating system
 (setq ;; makes killing/yanking interact with the clipboard
-      x-select-enable-clipboard t
+      select-enable-clipboard t
 
       ;; recommended
-      x-select-enable-primary t
+      select-enable-primary t
 
       ;; Save clipboard strings into kill ring before replacing them.
       ;; When one selects something in another program to paste it into Emacs,
@@ -295,7 +297,7 @@
   ;; match only files in current dir
   (setq ido-auto-merge-work-directories-length -1)
   ;; include buffer names of recently open buffers
-  (setq ido-use-virutal-buffers t)
+  (setq ido-use-virtual-buffers t)
   (ido-mode t)
   (ido-everywhere t))
 
@@ -326,7 +328,7 @@
   :config
   (setq avy-background t))
 
-;; colorfull paranthesis matching
+;; colorfull parenthesis matching
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
   :ensure t)
@@ -345,7 +347,7 @@
   :config
   (which-key-mode 1))
 
-;; git integtation
+;; git integration
 ;; https://magit.vc
 (use-package magit
   :ensure t)
@@ -355,7 +357,7 @@
 (use-package projectile
   :ensure t
   :init
-  (setq projective-completition-system 'ivy)
+  (setq projectile-completion-system 'ivy)
   :config
   (projectile-mode 1))
 
@@ -463,7 +465,7 @@
 (use-package diff-hl
   :ensure t
   :config
-  (global-diff-hl-mode +1)
+  (global-diff-hl-mode 1)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 ;; highlight TODO lines
@@ -487,6 +489,62 @@
 (use-package swiper
   :ensure t
   :bind (("C-c s" . 'swiper)))
+
+;; text completion
+;; https://company-mode.github.io
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0.5)
+  (setq company-show-numbers t)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2)
+  (setq company-tooltip-align-annotations t)
+  ;; invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows)
+  (setq company-tooltip-flip-when-above t)
+  (global-company-mode))
+
+;; spell checking - aspell
+(use-package flyspell
+  :config
+  (when (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))
+  (setq ispell-program-name "aspell" ; use aspell instead of ispell
+	ispell-extra-args '("--sug-mode=ultra"))
+  (add-hook 'text-mode-hook #'flyspell-mode)
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+
+;; syntax checking
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+;; clojure(script) syntax checker
+;; https://github.com/candid82/flycheck-joker
+(use-package flycheck-joker
+  :ensure t)
+
+;; html, css, xml editing
+;; http://web-mode.org
+(use-package web-mode
+  :ensure t
+  :mode (("\\.html?\\'" . web-mode)
+	 ("\\.css?\\'" . web-mode)
+	 ("\\.xml?\\'" . web-mode)
+	 ("\\.js?\\'" . web-mode))
+  :config
+  (add-hook 'web-mode-hook 'subword-mode)
+  (add-hook 'web-mode-hook 'tagedit-mode)
+  (setq web-mode-enable-auto-pairing t)
+  (setq web-mode-enable-css-colorization t)
+  (tagedit-add-paredit-like-keybindings))
+
+;; edit html tags like s sexps
+;; https://github.com/magnars/tagedit
+(use-package tagedit
+  :ensure t)
 
 
 ;;; Customizations
