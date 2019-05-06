@@ -287,6 +287,14 @@
   :init
   (add-hook 'before-save-hook 'whitespace-cleanup))
 
+;; enable code folding
+(use-package hideshow
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+  (add-hook 'lisp-mode-hook 'hs-minor-mode)
+  (add-hook 'sh-mode-hook 'hs-minor-mode)
+  (add-hook 'web-mode-hook 'hs-minor-mode))
+
 ;; ido allows easier navigation of choices
 (use-package ido
   :config
