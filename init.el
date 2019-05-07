@@ -293,7 +293,8 @@
   (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
   (add-hook 'lisp-mode-hook 'hs-minor-mode)
   (add-hook 'sh-mode-hook 'hs-minor-mode)
-  (add-hook 'web-mode-hook 'hs-minor-mode))
+  (add-hook 'web-mode-hook 'hs-minor-mode)
+  (add-hook 'lua-mode-hook 'hs-minor-mode))
 
 ;; ido allows easier navigation of choices
 (use-package ido
@@ -553,6 +554,14 @@
 ;; https://github.com/magnars/tagedit
 (use-package tagedit
   :ensure t)
+
+;; lua support
+;; http://immerrr.github.io/lua-mode/
+(use-package lua-mode
+  :ensure t
+  :bind (:map lua-mode-map
+	      ("C-c C-b" . 'lua-send-buffer)
+	      ("C-c C-l" . 'lua-send-current-line)))
 
 
 ;;; Customizations
