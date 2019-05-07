@@ -428,8 +428,14 @@
 
 ;; integration with clojure repl
 ;; https://github.com/clojure-emacs/cider
+(defun cider-switch-to-user-ns ()
+  "Set the current repl namespace to user."
+  (interactive)
+  (cider-repl-set-ns "user"))
 (use-package cider
   :ensure t
+  :bind (:map clojure-mode-map
+	      ("C-c u" . 'cider-switch-to-user-ns))
   :config
   (setq nrepl-log-messages t)
   (add-hook 'cider-mode-hook #'eldoc-mode)
@@ -452,8 +458,7 @@
   :ensure t
   :mode (("\\.md\\'" . gfm-mode)
 	 ("\\.markdown\\'" . gfm-mode)
-	 ("\\.mdown\\'" . gfm-mode)
-	 ("README\\.md\\'" . gfm-mode))
+	 ("\\.mdown\\'" . gfm-mode))
   :config
   (setq markdown-fontify-code-blocks-natively t))
 
@@ -509,8 +514,8 @@
   (setq company-tooltip-limit 10)
   (setq company-minimum-prefix-length 2)
   (setq company-tooltip-align-annotations t)
-  ;; invert the navigation direction if the the completion popup-isearch-match
-  ;; is displayed on top (happens near the bottom of windows)
+  ;; Invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows).
   (setq company-tooltip-flip-when-above t)
   (global-company-mode))
 
@@ -518,8 +523,11 @@
 (use-package flyspell
   :config
   (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))
-  (setq ispell-program-name "aspell" ; use aspell instead of ispell
+    ;; Cygwin provides aspell 0.60+ bin compatible
+    ;; with emacs 26+ on windows.
+    (add-to-list 'exec-path "C:/usr/cygwin64/bin"))
+  ;; use aspell instead of ispell
+  (setq ispell-program-name "aspell"
 	ispell-extra-args '("--sug-mode=ultra"))
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
