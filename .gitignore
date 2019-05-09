@@ -2,6 +2,7 @@ auto-save-list/
 backups/
 elpa/
 transient/
+server/
 places
 savehist
 .recentf

@@ -110,13 +110,6 @@
 ;; disalbe electric indent mode
 (setq electric-indent-mode nil)
 
-;; function and keybind for comment/uncomment line
-(defun comment-uncomment-line ()
-  "Comment or uncomment current line."
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-(global-set-key (kbd "C-;") 'comment-uncomment-line)
-
 ;; convert tabs to 2 spaces
 (defun die-tabs ()
   "Convert all tabs in buffer to 2 spaces."
