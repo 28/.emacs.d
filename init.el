@@ -515,10 +515,12 @@
 ;; spell checking - aspell
 (use-package flyspell
   :config
-  (when (eq system-type 'windows-nt)
+  ;; (when (eq system-type 'windows-nt)
     ;; Cygwin provides aspell 0.60+ bin compatible
-    ;; with emacs 26+ on windows.
-    (add-to-list 'exec-path "C:/usr/cygwin64/bin"))
+    ;; with emacs 26+ on Windows. Since whole Cygwin
+    ;; bin directory is in path this expression is
+    ;; a surplus.
+    ;; (add-to-list 'exec-path "C:/usr/cygwin64/bin"))
   ;; use aspell instead of ispell
   (setq ispell-program-name "aspell"
 	ispell-extra-args '("--sug-mode=ultra"))
