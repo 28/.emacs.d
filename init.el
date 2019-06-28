@@ -553,7 +553,7 @@
   (setq web-mode-enable-css-colorization t)
   (tagedit-add-paredit-like-keybindings))
 
-;; edit html tags like s sexps
+;; edit html tags like sexps
 ;; https://github.com/magnars/tagedit
 (use-package tagedit
   :ensure t)
