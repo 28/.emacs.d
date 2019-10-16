@@ -262,7 +262,7 @@
 (use-package ielm
   :config
   (add-hook 'ielm-mode-hook 'eldoc-mode)
-  (add-hook 'ielm-mode-hool 'rainbow-delimiters-mode))
+  (add-hook 'ielm-mode-hook 'rainbow-delimiters-mode))
 
 ;; handle lisp expressions easier
 (use-package paredit
@@ -448,6 +448,8 @@
 ;; markdown mode
 ;; https://jblevins.org/projects/markdown-mode/
 (use-package markdown-mode
+  :init
+  (remove-hook 'before-save-hook 'whitespace-cleanup)
   :ensure t
   :mode (("\\.md\\'" . gfm-mode)
 	 ("\\.markdown\\'" . gfm-mode)
