@@ -278,7 +278,9 @@
 ;; clean whitespace on save
 (use-package whitespace
   :init
-  (add-hook 'before-save-hook 'whitespace-cleanup))
+  (add-hook 'before-save-hook '(lambda ()
+				 (unless (member major-mode '(gfm-mode))
+				   (whitespace-cleanup)))))
 
 ;; enable code folding
 (use-package hideshow
@@ -448,8 +450,6 @@
 ;; markdown mode
 ;; https://jblevins.org/projects/markdown-mode/
 (use-package markdown-mode
-  :init
-  (remove-hook 'before-save-hook 'whitespace-cleanup)
   :ensure t
   :mode (("\\.md\\'" . gfm-mode)
 	 ("\\.markdown\\'" . gfm-mode)
