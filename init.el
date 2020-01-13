@@ -11,6 +11,8 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; add vendor directory to load path for downloaded elisp files
+(add-to-list 'load-path (concat user-emacs-directory "vendor"))
 
 ;;; Look and feel
 
