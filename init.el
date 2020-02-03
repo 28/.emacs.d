@@ -250,7 +250,20 @@
 (use-package org
   :bind (("C-c a" . 'org-agenda))
   :config
-  (setq org-log-done t))
+  (setq org-log-done t)
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode)))
+
+;; PlantUML integration
+;; https://github.com/skuro/plantuml-mode
+;; The configuration is based on PlantUML jar usage.
+;; The path to jar should be defined in 'plantuml-jar-path' variable.
+(use-package plantuml-mode
+  :ensure t
+  :mode (("\\.plantuml\\'" . plantuml-mode))
+  :config
+  (setq plantuml-default-exec-mode 'jar)
+  (setq plantuml-output-type "txt"))
 
 ;; lisp mode configuration
 (use-package lisp-mode
