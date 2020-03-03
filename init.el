@@ -247,6 +247,8 @@
   (windmove-default-keybindings))
 
 ;; org mode configuration
+;; For agenda to work .org files root directory must be defined
+;; in 'org-agenda-files' variable (customization).
 (use-package org
   :bind (("C-c a" . 'org-agenda))
   :config
@@ -258,13 +260,14 @@
 ;; PlantUML integration
 ;; https://github.com/skuro/plantuml-mode
 ;; The configuration is based on PlantUML jar usage.
-;; The path to jar should be defined in 'plantuml-jar-path' variable.
+;; The path to jar should be defined in 'plantuml-jar-path'
+;; variable (customization).
 (use-package plantuml-mode
   :ensure t
   :mode (("\\.plantuml\\'" . plantuml-mode))
   :config
   (setq plantuml-default-exec-mode 'jar)
-  (setq plantuml-output-type "txt"))
+  (setq plantuml-output-type "png")) ; svg, png or txt
 
 ;; lisp mode configuration
 (use-package lisp-mode
@@ -586,9 +589,15 @@
 
 ;; RSS, atom feed in Emacs
 ;; https://github.com/skeeto/elfeed
+;; Feed URL list should be defined in 'elfeed-feeds'
+;; variable (customization). It is recommended to run
+;; elfeed on curl, so latest version must be installed
+;; and on PATH.
 (use-package elfeed
   :ensure t
-  :bind (("C-x w" . 'elfeed)))
+  :bind (("C-x w" . 'elfeed))
+  :config
+  (setq elfeed-db-directory (concat user-emacs-directory "elfeed")))
 
 
 ;;; Customizations
