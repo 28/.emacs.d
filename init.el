@@ -584,6 +584,12 @@
 	      ("C-c C-b" . 'lua-send-buffer)
 	      ("C-c C-l" . 'lua-send-current-line)))
 
+;; RSS, atom feed in Emacs
+;; https://github.com/skeeto/elfeed
+(use-package elfeed
+  :ensure t
+  :bind (("C-x w" . 'elfeed)))
+
 
 ;;; Customizations
 
