@@ -1,0 +1,3 @@
+# 'vendor' directory for storing downloaded elisp files.
+*
+!.gitignore
