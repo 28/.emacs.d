@@ -54,6 +54,19 @@
 (column-number-mode t)
 (size-indication-mode t)
 
+;; display clock
+(display-time-mode t)
+(defface display-time-face
+  '((t :foreground "#BFEBBF" :inherit bold))
+  "Face used to display the time in the mode line."
+  :group 'basic-faces)
+(setq display-time-string-forms
+      '((propertize (concat "Time: " 24-hours ":" minutes " ")
+		    'face 'display-time-face)))
+
+;; display battery level on laptops
+(display-battery-mode t)
+
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
