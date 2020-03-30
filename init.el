@@ -266,7 +266,7 @@
   :bind (("C-c a" . 'org-agenda))
   :config
   (setq org-log-done 'note)
-  (setq org-todo-keywords '((sequence "TODO(t)" "HOLD(h!)" "|" "DONE(d@!)" "CANCELED(c@!)")))
+  (setq org-todo-keywords '((sequence "TODO(t!)" "HOLD(h!)" "|" "DONE(d@!)" "CANCELED(c@!)")))
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode)))
 
