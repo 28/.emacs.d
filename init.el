@@ -61,7 +61,7 @@
   "Face used to display the time in the mode line."
   :group 'basic-faces)
 (setq display-time-string-forms
-      '((propertize (concat "Time: " 24-hours ":" minutes " ")
+      '((propertize (concat 24-hours ":" minutes " ")
 		    'face 'display-time-face)))
 
 ;; display battery level on laptops
