@@ -316,6 +316,7 @@
 
 ;; enable code folding
 (use-package hideshow
+  :bind (("C-c o a" . 'outline-show-all))
   :config
   (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
   (add-hook 'lisp-mode-hook 'hs-minor-mode)
