@@ -545,6 +545,7 @@
   ;; Invert the navigation direction if the the completion popup-isearch-match
   ;; is displayed on top (happens near the bottom of windows).
   (setq company-tooltip-flip-when-above t)
+  (setq company-selection-wrap-around t)
   (global-company-mode))
 
 ;; spell checking - aspell
