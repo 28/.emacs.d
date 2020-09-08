@@ -447,7 +447,8 @@
   :config
   (add-hook 'clojure-mode-hook 'paredit-mode)
   (add-hook 'clojure-mode-hook 'subword-mode)
-  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
+  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+  (require 'flycheck-clj-kondo))
 
 ;; extra syntax highlighting for clojure
 ;; https://github.com/clojure-emacs/clojure-mode/blob/master/clojure-mode-extra-font-locking.el
@@ -564,14 +565,15 @@
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 ;; syntax checking
+;; https://www.flycheck.org/
 (use-package flycheck
   :ensure t
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-;; clojure(script) syntax checker
-;; https://github.com/candid82/flycheck-joker
-(use-package flycheck-joker
+;; A linter for Clojure code
+;; https://github.com/borkdude/flycheck-clj-kondo
+(use-package flycheck-clj-kondo
   :ensure t)
 
 ;; html, css, xml editing
