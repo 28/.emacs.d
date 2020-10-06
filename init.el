@@ -116,6 +116,10 @@
 ;; replace buffer menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; swap undo and suspend-frame commands
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-/") 'suspend-frame)
+
 ;; add manual command
 (define-key 'help-command (kbd "C-i") 'info-display-manual)
 
