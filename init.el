@@ -2,7 +2,7 @@
 
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+	 '("melpa" . "https://melpa.org/packages/") t)
 ;; keep installed packages in .emacs.d
 (setq package-user-dir (concat user-emacs-directory "elpa"))
 (package-initialize)
@@ -62,7 +62,7 @@
   :group 'basic-faces)
 (setq display-time-string-forms
       '((propertize (concat 24-hours ":" minutes " ")
-		    'face 'display-time-face)))
+	    'face 'display-time-face)))
 
 ;; display battery level on laptops
 (display-battery-mode t)
@@ -74,8 +74,8 @@
 ;; or file name with full path
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
-		   (abbreviate-file-name (buffer-file-name))
-		 "%b (%f)"))))
+	   (abbreviate-file-name (buffer-file-name))
+	 "%b (%f)"))))
 
 ;; don't use tabs for indentation
 (setq indent-tabs-mode nil)
@@ -85,7 +85,7 @@
 
 ;; custom directory for backup files (.emacs.d/backups)
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-					       "backups"))))
+			   "backups"))))
 
 ;; disable autosave mode
 (setq auto-save-default nil)
@@ -103,15 +103,15 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
-	try-expand-dabbrev-all-buffers
-	try-expand-dabbrev-from-kill
-	try-complete-file-name-partially
-	try-complete-file-name
-	try-expand-all-abbrevs
-	try-expand-list
-	try-expand-line
-	try-complete-lisp-symbol-partially
-	try-complete-lisp-symbol))
+    try-expand-dabbrev-all-buffers
+    try-expand-dabbrev-from-kill
+    try-complete-file-name-partially
+    try-complete-file-name
+    try-expand-all-abbrevs
+    try-expand-list
+    try-expand-line
+    try-complete-lisp-symbol-partially
+    try-complete-lisp-symbol))
 
 ;; replace buffer menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -245,17 +245,17 @@
 (use-package savehist
   :config
   (setq savehist-additional-variables
-	'(search-ring regexp-search-ring)
-	savehist-autosave-interval 120
-	savehist-file (concat user-emacs-directory "savehist"))
+    '(search-ring regexp-search-ring)
+    savehist-autosave-interval 120
+    savehist-file (concat user-emacs-directory "savehist"))
   (savehist-mode 1))
 
 ;; recentf configuration
 (use-package recentf
   :config
   (setq recentf-save-file (concat user-emacs-directory ".recentf")
-	recentf-max-saved-items 500
-	recentf-max-menu-items 15)
+    recentf-max-saved-items 500
+    recentf-max-menu-items 15)
   (recentf-mode 1))
 
 ;; enable windmove - navigate between visible buffers with shift + arrow
@@ -270,7 +270,8 @@
   :bind (("C-c a" . 'org-agenda))
   :config
   (setq org-log-done 'note)
-  (setq org-todo-keywords '((sequence "TODO(t!)" "HOLD(h!)" "|" "DONE(d@!)" "CANCELED(c@!)")))
+  (setq org-todo-keywords '((sequence "TODO(t!)" "HOLD(h!)" "|" "DONE(d@!)" "CANCELED(c@!)")
+			    (sequence "PROJECT(t!)" "|" "COMPLETED(d@!)" "CANCELED(c@!)")))
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode)))
 
@@ -315,8 +316,8 @@
 (use-package whitespace
   :init
   (add-hook 'before-save-hook '(lambda ()
-				 (unless (member major-mode '(gfm-mode))
-				   (whitespace-cleanup)))))
+		 (unless (member major-mode '(gfm-mode))
+		   (whitespace-cleanup)))))
 
 ;; enable code folding
 (use-package hideshow
@@ -363,9 +364,9 @@
 (use-package avy
   :ensure t
   :bind (("C-=" . 'avy-goto-char)
-	 ("C-|" . 'avy-goto-char-2)
-	 ("M-g f" . 'avy-goto-line)
-	 ("M-g w" . 'avy-goto-word-1))
+     ("C-|" . 'avy-goto-char-2)
+     ("M-g f" . 'avy-goto-line)
+     ("M-g w" . 'avy-goto-word-1))
   :config
   (setq avy-background t))
 
@@ -421,7 +422,7 @@
 (use-package anzu
   :ensure t
   :bind (("M-%" . anzu-query-replace)
-	 ("C-M-%" . anzu-query-replace-regexp))
+     ("C-M-%" . anzu-query-replace-regexp))
   :config
   (global-anzu-mode 1))
 
@@ -447,7 +448,7 @@
 (use-package clojure-mode
   :ensure t
   :mode (("\\.edn$" . clojure-mode)
-	 ("\\.boot$" . clojure-mode))
+     ("\\.boot$" . clojure-mode))
   :config
   (add-hook 'clojure-mode-hook 'paredit-mode)
   (add-hook 'clojure-mode-hook 'subword-mode)
@@ -468,7 +469,7 @@
 (use-package cider
   :ensure t
   :bind (:map clojure-mode-map
-	      ("C-c u" . 'cider-switch-to-user-ns))
+	  ("C-c u" . 'cider-switch-to-user-ns))
   :config
   (setq nrepl-log-messages t)
   (add-hook 'cider-mode-hook #'eldoc-mode)
@@ -490,8 +491,8 @@
 (use-package markdown-mode
   :ensure t
   :mode (("\\.md\\'" . gfm-mode)
-	 ("\\.markdown\\'" . gfm-mode)
-	 ("\\.mdown\\'" . gfm-mode))
+     ("\\.markdown\\'" . gfm-mode)
+     ("\\.mdown\\'" . gfm-mode))
   :config
   (setq markdown-fontify-code-blocks-natively t))
 
@@ -500,7 +501,7 @@
 (use-package graphviz-dot-mode
   :ensure t
   :bind (:map graphviz-dot-mode-map
-	 ("C-c b" . 'graphviz-dot-preview)))
+     ("C-c b" . 'graphviz-dot-preview)))
 
 ;; yaml support
 ;; https://github.com/yoshiki/yaml-mode
@@ -564,7 +565,7 @@
     ;; (add-to-list 'exec-path "C:/usr/cygwin64/bin"))
   ;; use aspell instead of ispell
   (setq ispell-program-name "aspell"
-	ispell-extra-args '("--sug-mode=ultra"))
+    ispell-extra-args '("--sug-mode=ultra"))
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
@@ -585,9 +586,9 @@
 (use-package web-mode
   :ensure t
   :mode (("\\.html?\\'" . web-mode)
-	 ("\\.css?\\'" . web-mode)
-	 ("\\.xml?\\'" . web-mode)
-	 ("\\.js?\\'" . web-mode))
+     ("\\.css?\\'" . web-mode)
+     ("\\.xml?\\'" . web-mode)
+     ("\\.js?\\'" . web-mode))
   :config
   (add-hook 'web-mode-hook 'subword-mode)
   (add-hook 'web-mode-hook 'tagedit-mode)
@@ -605,8 +606,8 @@
 (use-package lua-mode
   :ensure t
   :bind (:map lua-mode-map
-	      ("C-c C-b" . 'lua-send-buffer)
-	      ("C-c C-l" . 'lua-send-current-line)))
+	  ("C-c C-b" . 'lua-send-buffer)
+	  ("C-c C-l" . 'lua-send-current-line)))
 
 ;; RSS, atom feed in Emacs
 ;; https://github.com/skeeto/elfeed
