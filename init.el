@@ -621,6 +621,12 @@
   :config
   (setq elfeed-db-directory (concat user-emacs-directory "elfeed")))
 
+;; Gopher and Gemini client
+;; https://thelambdalab.xyz/elpher/
+(use-package elpher
+  :ensure t
+  :bind (("C-x x" . 'elpher)))
+
 
 ;;; Customizations
 
