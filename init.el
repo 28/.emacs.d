@@ -16,6 +16,9 @@
 
 ;;; Look and feel
 
+;; start Emacs maximized
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 ;; load newest byte code
 (setq load-prefer-newer t)
 
