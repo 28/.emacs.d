@@ -158,6 +158,9 @@
 ;; don't pop up font menu on mac
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
 
+;; calendar first day is Monday
+(setq calendar-week-start-day 1)
+
 ;; set how emacs yank interacts with operating system
 (setq ;; makes killing/yanking interact with the clipboard
       select-enable-clipboard t
