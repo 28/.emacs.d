@@ -217,6 +217,16 @@
   :config
   (load-theme 'zenburn t))
 
+;; adds colorful icons
+;; https://github.com/domtronn/all-the-icons.el
+;; https://github.com/jtbm37/all-the-icons-dired
+(use-package all-the-icons
+  :ensure t)
+(use-package all-the-icons-dired
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+
 ;; highlight matching parentheses
 (use-package paren
   :config
