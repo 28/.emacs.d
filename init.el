@@ -289,7 +289,12 @@
   (setq org-todo-keywords '((sequence "TODO(t!)" "HOLD(h!)" "|" "DONE(d@!)" "CANCELED(c@!)")
 			    (sequence "PROJECT(t!)" "|" "COMPLETED(d@!)" "CANCELED(c@!)")))
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode)))
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode))
+  (org-link-set-parameters
+   "gemini"
+   :follow (lambda (path) (elpher-go (concat "gemini:" path)))
+   :face '(:foreground "turquoise" :weight bold)
+   :display 'full))
 
 ;; PlantUML integration
 ;; https://github.com/skuro/plantuml-mode
