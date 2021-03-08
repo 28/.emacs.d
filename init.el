@@ -385,9 +385,9 @@
 (use-package avy
   :ensure t
   :bind (("C-=" . 'avy-goto-char)
-     ("C-|" . 'avy-goto-char-2)
-     ("M-g f" . 'avy-goto-line)
-     ("M-g w" . 'avy-goto-word-1))
+	 ("C-|" . 'avy-goto-char-2)
+	 ("M-g f" . 'avy-goto-line)
+	 ("M-g w" . 'avy-goto-word-1))
   :config
   (setq avy-background t))
 
@@ -469,7 +469,7 @@
 (use-package clojure-mode
   :ensure t
   :mode (("\\.edn$" . clojure-mode)
-     ("\\.boot$" . clojure-mode))
+	 ("\\.boot$" . clojure-mode))
   :config
   (add-hook 'clojure-mode-hook 'paredit-mode)
   (add-hook 'clojure-mode-hook 'subword-mode)
@@ -512,8 +512,8 @@
 (use-package markdown-mode
   :ensure t
   :mode (("\\.md\\'" . gfm-mode)
-     ("\\.markdown\\'" . gfm-mode)
-     ("\\.mdown\\'" . gfm-mode))
+	 ("\\.markdown\\'" . gfm-mode)
+	 ("\\.mdown\\'" . gfm-mode))
   :config
   (setq markdown-fontify-code-blocks-natively t))
 
@@ -544,7 +544,7 @@
   :config
   (global-hl-todo-mode t))
 
-;; completition mechanism
+;; completion mechanism
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
   :ensure t
@@ -607,9 +607,9 @@
 (use-package web-mode
   :ensure t
   :mode (("\\.html?\\'" . web-mode)
-     ("\\.css?\\'" . web-mode)
-     ("\\.xml?\\'" . web-mode)
-     ("\\.js?\\'" . web-mode))
+	 ("\\.css?\\'" . web-mode)
+	 ("\\.xml?\\'" . web-mode)
+	 ("\\.js?\\'" . web-mode))
   :config
   (add-hook 'web-mode-hook 'subword-mode)
   (add-hook 'web-mode-hook 'tagedit-mode)
@@ -647,6 +647,11 @@
 (use-package elpher
   :ensure t
   :bind (("C-x x" . 'elpher)))
+
+;; syntax highlighting for text/gemini
+;; https://git.carcosa.net/jmcbray/gemini.el.git
+(use-package gemini-mode
+  :ensure t)
 
 
 ;;; Customizations
