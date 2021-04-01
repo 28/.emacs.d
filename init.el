@@ -653,6 +653,13 @@
 (use-package gemini-mode
   :ensure t)
 
+;; code templates
+;; https://github.com/joaotavora/yasnippet
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
 
 ;;; Customizations
 
