@@ -1,0 +1,8 @@
+# name: the paranoid times blog post
+# key: tptblog
+# --
+---
+layout: post
+title: $1
+category: blog
+---

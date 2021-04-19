@@ -1,0 +1,9 @@
+# name: the paranoid times project page
+# key: tptproject
+# --
+---
+layout: page
+title: $1
+category: projects
+permalink: /:categories/:title
+---
