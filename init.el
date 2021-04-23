@@ -288,13 +288,22 @@
   (setq org-log-done 'note)
   (setq org-todo-keywords '((sequence "TODO(t!)" "HOLD(h!)" "|" "DONE(d@!)" "CANCELED(c@!)")
 			    (sequence "PROJECT(t!)" "|" "COMPLETED(d@!)" "CANCELED(c@!)")))
-  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode))
   (org-link-set-parameters
    "gemini"
    :follow (lambda (path) (elpher-go (concat "gemini:" path)))
    :face '(:foreground "turquoise" :weight bold)
-   :display 'full))
+   :display 'full)
+  ;; org-babel
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode))
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((plantuml . t)
+     (shell . t)
+     (sql . t)
+     (dot . t)))
+  (setq org-confirm-babel-evaluate nil)
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
 
 ;; PlantUML integration
 ;; https://github.com/skuro/plantuml-mode
