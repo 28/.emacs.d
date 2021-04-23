@@ -1,0 +1,12 @@
+# name : org-babel SQL block
+# key : obsql
+# --
+#+NAME: $1
+#+HEADER: :engine $2
+#+HEADER: :dbhost $3
+#+HEADER: :dbuser $4
+#+HEADER: :dbpassword $5
+#+HEADER: :database $6
+#+BEGIN_SRC sql
+    $0
+#+END_SRC

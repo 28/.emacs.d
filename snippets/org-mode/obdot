@@ -1,0 +1,6 @@
+# name: org-babel dot source block
+# key: obdot
+# --
+#+BEGIN_SRC dot :file ${1:./test.png} :tangle ${2:./test.dot}
+$0
+#+END_SRC

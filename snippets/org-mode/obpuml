@@ -1,0 +1,6 @@
+# name : org-babel plantuml source block
+# key : obpuml
+# --
+#+BEGIN_SRC plantuml :file ${1:./test.png} :tangle ${2:./test.plantuml}
+$0
+#+END_SRC
