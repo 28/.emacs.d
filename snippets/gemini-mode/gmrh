@@ -1,0 +1,6 @@
+# name: gemini radio log header
+# key gmrh
+# --
+|    Date    | Location |    Weather    |
+|------------|----------|---------------|
+|$1          |$2        | $3            |
