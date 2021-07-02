@@ -1,0 +1,11 @@
+# name: gemini radio log entry
+# key: gmre
+# --
+|    $1    |      $2                   |
+|----------|---------------------------|
+| From     | $3                        |
+| To       | $4                        |
+| Name     | $5                        |
+| Type     | $6                        |
+| Language | $7                        |
+| Location | $8                        |
