@@ -1,0 +1,6 @@
+# name: org-babel xml source block
+# key: obxml
+# --
+#+BEGIN_SRC nxml
+$0
+#+END_SRC

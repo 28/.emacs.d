@@ -1,0 +1,7 @@
+# name: org-babel java source block
+# key: objava
+# --
+#+HEADERS: :classname $1 :cmdline "-cp ."
+#+BEGIN_SRC java :results value :exports both
+$0
+#+END_SRC

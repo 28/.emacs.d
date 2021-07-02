@@ -301,7 +301,8 @@
    '((plantuml . t)
      (shell . t)
      (sql . t)
-     (dot . t)))
+     (dot . t)
+     (java . t)))
   (setq org-confirm-babel-evaluate nil)
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append))
 
