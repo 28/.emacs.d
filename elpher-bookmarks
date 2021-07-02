@@ -4,7 +4,8 @@
 ; Feel free to edit by hand, but take care to ensure
 ; the list structure remains intact.
 
-(("COM - g.jae.moe" "gemini://g.jae.moe/")
+(("capsule.theparanoidtimes.org" "gemini://capsule.theparanoidtimes.org/")
+ ("COM - g.jae.moe" "gemini://g.jae.moe/")
  ("COM - koyu.space" "gemini://koyu.space/")
  ("COM - nightfall.city" "gemini://main-street.nightfall.city/")
  ("gardengnome" "gemini://gardengnome.ml/")
